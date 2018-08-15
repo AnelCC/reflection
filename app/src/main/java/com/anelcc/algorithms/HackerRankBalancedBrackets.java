@@ -49,4 +49,29 @@ public class HackerRankBalancedBrackets {
         return "yes";
     }
 
+    public boolean isBalancedBracketsHashMap(String s) {
+        HashMap<Character, Character> brackets = new HashMap<Character, Character>();
+        brackets.put('(', ')');
+        brackets.put('[', ']');
+        brackets.put('{', '}');
+
+        Stack<Character> stack = new Stack<Character>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char curr = s.charAt(i);
+
+            if (brackets.keySet().contains(curr)) {
+                stack.push(curr);
+            } else if (brackets.values().contains(curr)) {
+                if (!stack.empty() && brackets.get(stack.peek()) == curr) {
+                    stack.pop();
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        return stack.empty();
+    }
+
 }
