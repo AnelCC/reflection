@@ -74,4 +74,26 @@ public class HackerRankBalancedBrackets {
         return stack.empty();
     }
 
+    public boolean isBalancedBracketsStack(String s) {
+        Stack stack = new Stack();
+        String operator = "({[";
+        String operator2 = ")}]";
+
+        for (int i = 0; i < s.length(); i++) {
+            if (operator.contains(s.substring(i, i + 1))) {
+                int index = operator.indexOf(s.substring(i, i + 1));
+                stack.push(operator2.charAt(index));
+            } else if (stack.isEmpty())
+                return false;
+            else {
+                char myChar = (char) stack.pop();
+                if (myChar == s.charAt(i))
+                    return false;
+            }
+        }
+        if (!stack.empty()) {
+            return false;
+        }
+        return true;
+    }
 }

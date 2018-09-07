@@ -32,4 +32,10 @@ public class HackerRankBalancedBracketsTest {
         assertTrue(balancedBrackets.isBalancedBracketsHashMap("(){}[]"));
         assertFalse(balancedBrackets.isBalancedBracketsHashMap("(({}[]"));
     }
+
+    @Test
+    public void ReturnBooleanBalancedBracketsStack() {
+        //  assertTrue(balancedBrackets.isBalancedBracketsStack("(){}[]"));
+        assertFalse(balancedBrackets.isBalancedBracketsStack("(({}[]"));
+    }
 }
