@@ -22,5 +22,6 @@ public class EvenFibonacciNumbersTest {
     @Test
     public void fibonacciNumbers() {
         assertEquals(4613732, fibonacciNumbers.fibonacciNumbers());
+        assertEquals(4613732, fibonacciNumbers.fibonacciNumbersRule());
     }
 }

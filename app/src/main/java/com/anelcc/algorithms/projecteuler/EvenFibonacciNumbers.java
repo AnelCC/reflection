@@ -18,14 +18,12 @@ The Rule is xn = xn-1 + xn-2
  Fn = Fn-1 + Fn-2
  */
 public class EvenFibonacciNumbers {
-
 // [0, 1, 1, 2, x ] ---> (0 + 0 = [0], 0 + 1 = [1], 1 + 1 = [2])
     public int fibonacciNumbers() {
         int num1 = 0;
         int num2 = 1;
         int temp = 0;
         int sum = 0;
-
         do {
             if (num2 % 2 == 0) {
                 sum += num2;
@@ -36,7 +34,21 @@ public class EvenFibonacciNumbers {
         } while (num2 < 4000000);
 
         System.out.println(sum);
+        return sum;
+    }
 
+    public int fibonacciNumbersRule() {
+        int sum = 0 ;
+        int x1 = 1;
+        int x2 = 2;
+        while ( x1 < 4000000 ) {
+            if ( (x1 & 1) == 0 ){    // x % 2 == 0
+                sum += x1;
+            }
+            x2=x1+x2;                // x2 = sum
+            x1=x2-x1;                // x1 = the old value of x2
+        }
+        System.out.println(sum);
         return sum;
     }
 }
